@@ -2,7 +2,7 @@
 
 This repository contains a CloudFormation template and a bash script to create an EC2 Launch Template and Auto Scaling Group (ASG) in AWS. The CloudFormation template deploys the necessary resources, while the script allows you to customize the parameters for the deployment.
 
-# Launch stack directly from AWS
+# Launch stack directly in AWS
 
 [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://prasanna-glacier-dev.s3.us-east-1.amazonaws.com/asg_creator.yml)
 
