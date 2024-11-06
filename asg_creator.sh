@@ -1,6 +1,5 @@
 NAME=""
 SUBNETS=""
-DESIRED_CAPACITY=1
 MIN_SIZE=1
 MAX_SIZE=3
 TEMPLATE_FILE="asg_creator.yml"
@@ -44,6 +43,11 @@ fi
 
 if [ -z "$SUBNETS" ]; then
   echo "Error: Subnets parameter (-u) is required."
+  usage
+fi
+
+if [ -z "$DESIRED_CAPACITY" ]; then
+  echo "Error: Desired capacity parameter (-u) is required."
   usage
 fi
 

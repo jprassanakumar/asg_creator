@@ -18,7 +18,6 @@ Parameters:
 
   DesiredCapacity: 
     Type: Number
-    Default: 2
     Description: desried number instances requried at any point of time
 
   MinSize:
