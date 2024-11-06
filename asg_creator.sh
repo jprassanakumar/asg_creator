@@ -47,7 +47,7 @@ if [ -z "$SUBNETS" ]; then
 fi
 
 if [ -z "$DESIRED_CAPACITY" ]; then
-  echo "Error: Desired capacity parameter (-u) is required."
+  echo "Error: Desired capacity parameter (-s) is required."
   usage
 fi
 
