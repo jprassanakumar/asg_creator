@@ -4,7 +4,7 @@ This repository contains a CloudFormation template and a bash script to create a
 
 # Launch stack directly from AWS
 
-[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://raw.githubusercontent.com/jprassanakumar/asg_creator/refs/heads/main/asg_creator.yml)
+[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://prasanna-glacier-dev.s3.us-east-1.amazonaws.com/asg_creator.yml)
 
 
 ## Overview
