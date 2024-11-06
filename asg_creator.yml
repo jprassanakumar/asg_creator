@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Launch Template for ASG 
+
+Parameters:
+  AmiId:
+    Type: AWS::EC2::Image::Id
+    Default: ami-0866a3c8686eaeeba
+    Description: AMI id for working
+
+  InstanceType:
+    Type: String
+    Default: t3.micro
+    Description: Instance family type
+
+  Name:
+    Type: String
+    Description: Name for created resources.
+
+  DesiredCapacity: 
+    Type: Number
+    Default: 2
+    Description: desried number instances requried at any point of time
+
+  MinSize:
+    Type: Number
+    Default: 1
+    Description: Min number of instances in ASG
+
+  MaxSize:
+    Type: Number
+    Default: 3
+    Description: Max number of instances in ASG
+
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: List of subnet IDs where the Auto Scaling Group will launch instances.
+
+Resources:
+  EC2LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties: 
+      LaunchTemplateData:
+        InstanceType: !Ref InstanceType
+        ImageId: !Ref AmiId 
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+              - Key: Name
+                Value: !Sub "${Name}-Instance"
+
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref EC2LaunchTemplate
+        Version: !GetAtt EC2LaunchTemplate.LatestVersionNumber
+      MinSize: !Ref MinSize
+      MaxSize: !Ref MaxSize
+      DesiredCapacity: !Ref DesiredCapacity
+      VPCZoneIdentifier: !Ref SubnetIds
+      Tags:
+        - Key: Name
+          Value: !Sub "${Name}-ASG"
+          PropagateAtLaunch: true
